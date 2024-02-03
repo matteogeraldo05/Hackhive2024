@@ -38,12 +38,18 @@ Staff1 = Staff(firstName, lastName, job, birthday, authority, SIN)
 
 
 import msvcrt
+import json
 
-user_database = {
-    'user1': 'password123',
-    'user2': 'hello@world',
-    # Add more users as needed
-}
+def load_user_database():
+    try:
+        with open('user_database.json', 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {}
+
+def save_user_database(user_database):
+    with open('user_database.json', 'w') as file:
+        json.dump(user_database, file)
 
 def getpass_with_mask(prompt=""):
     password = ""
@@ -62,7 +68,7 @@ def getpass_with_mask(prompt=""):
             print('*', end='', flush=True)  # Print '*' for masking
     return password
 
-def login(username, password):
+def login(username, password, user_database):
     if username in user_database:
         stored_password = user_database[username]
         if stored_password == password:
@@ -73,9 +79,13 @@ def login(username, password):
         print("Username not found. Please register.")
 
 # Example usage:
+user_database = load_user_database()
+
 username_input = input("Enter your username: ")
 password_input = getpass_with_mask("Enter your password: ")
-login(username_input, password_input)
+
+login(username_input, password_input, user_database)
+
 
 
 
