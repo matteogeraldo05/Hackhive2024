@@ -1,40 +1,10 @@
 import re
 import time
 import json
+import tkinter as tk
 #git add --all
 #git commit -m "hackhive"
 #git push origin main 
-
-
-"""
-Patient class with
-
-name(str)
-date of birth(str)
-checkout/in time(str)
-phone number(str)
-address(str)
-email(str)
-doctor(str)
-address(list)
-occupation(str)
-allergies(list)
-conditions(list)
-sex(str)
-race(str)
-image(img)
-bodycount(int)
-healthcard(str)
-insurace(str)
-credit card(int)
-height(int)
-weight(int)
-emergency contacty(str)
-
-
-
-"""
-
 
 class Patient:
     def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
@@ -101,12 +71,14 @@ class Patient:
             print("Invalid email format. Please try again.")
             email = input("Enter Email: ")
         return email
-        
+
+#for check in time and check out time
 def current_time():
     localTime = time.localtime()
     current_time = time.strftime("%H:%M:%S", localTime)
     return current_time
 
+# function to create a new patient
 def create_patient():
     firstName = input("Enter First Name: ")
     lastName = input("Enter Last Name: ")
@@ -182,3 +154,28 @@ print("Length of Queue:",queue.queue_length())
 queue.remove_patient()
 queue.show_queue()
 print("Length of Queue:",queue.queue_length())
+
+# Create the main window
+window = tk.Tk()
+
+#size of window
+window.geometry("600x500")
+
+#puts the window in the center of the screen
+window.eval('tk::PlaceWindow . center')
+
+# Set the window title
+window.title("SmartHealth Records")
+window.configure(background="#505050")
+window.iconbitmap("")
+window.resizable(False,False)
+
+# Create a label
+label = tk.Label(window, text="Welcome to SmartHealth Records!", font="Arial 24 bold", bg="#505050", fg="blue")
+label.pack()
+
+# Create a button
+button = tk.Button(window, text="", command=#log in function)
+button.pack()
+
+window.mainloop()
