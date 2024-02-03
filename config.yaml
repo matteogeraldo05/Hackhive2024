@@ -1,0 +1,3 @@
+azure_storage_connectionstring: "DefaultEndpointsProtocol=https;AccountName=smarthealthrecords;AccountKey=tZUvduxyvNahf+IrhXuilrYi1U56OnjIy0DAZ58cI30aCui7djohY5UgUyqOXM3sl65p6ViRp3TV+AStOmlLUQ==;EndpointSuffix=core.windows.net"
+patients_container_name: "patients"
+source_folder: "/Users/matte/OneDrive/Desktop/Projects/C++/Other/Hackhive2024/upload"
