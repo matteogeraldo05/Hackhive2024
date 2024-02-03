@@ -58,9 +58,10 @@ class Patient:
         self.emergency_contact = emergency_contact
 
         self.patient_dict = {
-            "Name": self.name,
-            "Birthday": self.dob,
-            "Check In Time": self.checkin,
+            "First Name": self.firstName,
+            "Last Name": self.lastName,
+            "Birthday": self.birthday,
+            "Check In Time": self.checkIn,
             "Phone": self.phone,
             "Adress": self.address,
             "Email": self.email,
@@ -76,8 +77,6 @@ class Patient:
             "Height": self.height,
             "Weight": self.weight,
             "Emergency Contact": self.emergency_contact}
-
-    
 
 
 #function to create Patients
