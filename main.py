@@ -40,7 +40,7 @@ class Patient:
         self.lastName = lastName
         self.birthday = birthday
         self.married = married
-        self.checkin = checkIn
+        self.checkIn = checkIn
         self.phone = phone
         self.address = address
         self.email = email
@@ -61,6 +61,7 @@ class Patient:
             "First Name": self.firstName,
             "Last Name": self.lastName,
             "Birthday": self.birthday,
+            "Married": self.married,
             "Check In Time": self.checkIn,
             "Phone": self.phone,
             "Adress": self.address,
@@ -87,7 +88,7 @@ class Patient:
 
 #test create patient
     
-patient1 = Patient("John Doe", "01/01/1990", "12:00", "123-456-7890", "1234 Main St", "John.Doe@gmail.com", "Dr. Smith", "Engineer", ["Peanuts", "Shellfish"], ["Diabetes", "Hypertension"],"Male", "White","", 10, "Blue Cross", 123456789, 72, 180, "Jane Doe")
+patient1 = Patient("John", "Doe", "01/01/1990", "YES", "12:00", "123-456-7890", "1234 Main St", "John.Doe@gmail.com", "Dr. Smith", "Engineer", ["Peanuts", "Shellfish"], ["Diabetes", "Hypertension"],"Male", "White","IMAGE", "Blue Cross", 123456789, 72, 180, "Jane Doe")
 print()
 
 for key, value in patient1.create_patient().items():
@@ -109,7 +110,7 @@ class Queue:
 
     def show_queue(self):
         for patient in self.queue:
-            print(patient.name, patient.conditions)
+            print(patient.firstName, patient.lastName, patient.conditions)
     
     def next_patient(self):
         return self.queue[0]
