@@ -132,7 +132,7 @@ def create_patient():
 patient1 = create_patient()    
 
 #print(patient1.patient_dict)
-
+#DEBUG
 for key, value in patient1.patient_dict.items():
     print(f"{key}: {value}")
 
