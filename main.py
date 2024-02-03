@@ -1,5 +1,6 @@
 import re
 import time
+import json
 #git add --all
 #git commit -m "hackhive"
 #git push origin main 
@@ -36,7 +37,7 @@ emergency contacty(str)
 
 
 class Patient:
-    def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions, sex, gender, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
+    def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
         self.firstName = firstName
         self.lastName = lastName
         self.birthday = birthday
@@ -49,6 +50,7 @@ class Patient:
         self.occupation = occupation
         self.allergies = allergies
         self.conditions = conditions
+        self.gender = gender
         self.sex = sex
         self.gender = gender
         self.ethnicity = ethnicity
@@ -58,7 +60,6 @@ class Patient:
         self.height = height
         self.weight = weight
         self.emergency_contact = emergency_contact
-    
     
         self.patient_dict = {
             "First Name": self.firstName,
@@ -73,6 +74,7 @@ class Patient:
             "Occupation": self.occupation,
             "Allergies": self.allergies,
             "Conditions": self.conditions,
+            "Gender": self.gender,
             "Sex": self.sex,
             "Gender": self.gender,
             "Ethnicity":self.ethnicity,
@@ -84,9 +86,6 @@ class Patient:
             "Emergency Contact": self.emergency_contact
             
             }
-        
-    def create_patient(self):  
-        return self.patient_dict
     
     #check if users phone number configuration is valid
     def validate_phone():
@@ -108,7 +107,7 @@ def current_time():
     current_time = time.strftime("%H:%M:%S", localTime)
     return current_time
 
-for i in range(1):
+def create_patient():
     firstName = input("Enter First Name: ")
     lastName = input("Enter Last Name: ")
     birthday = input("Enter Birthday: ")
@@ -121,25 +120,34 @@ for i in range(1):
     occupation = input("Enter Occupation: ")  
     allergies = input("Enter Allergies: ").split()
     conditions = input("Enter Conditions: ").split()
+    gender = input("Enter Gender:")
     sex = input("Enter Sex:")
     ethnicity = input("Enter Ethnicity: ")
     insurance = input("Enter Insurance: ")
     credit_card = int(input("Enter Credit Card: "))
-    height = int(input("Enter Height(cm): "))
-    weight = int(input("Enter Weight(lbs): "))
-    contact = input("Enter Emergency Contact(name): ")       
+    height = int(input("Enter Height: "))
+    weight = int(input("Enter Weight: "))
+    emergency_contact = input("Enter Emergency Contact: ")
+
+    return Patient(firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex,ethnicity,"Image",insurance,credit_card,height,weight,emergency_contact)
 
 
-    
-   
-patient1 = Patient(firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,sex,ethnicity,"Image",insurance,credit_card,height,weight,contact)              
+patient1 = create_patient()    
+
+#print(patient1.patient_dict)
+
+with open('data.json', 'a') as a:
+    json.dump(patient1.patient_dict, a)
+
+with open('data.json', 'a') as a:
+    json.dump('\n', a)
 
 
-
-print()
-
-for key, value in patient1.create_patient().items():
+for key, value in patient1.patient_dict.items():
     print(f"{key}: {value}")
+
+
+
 
 print()
 
