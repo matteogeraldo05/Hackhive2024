@@ -1,5 +1,3 @@
-import getpass
-
 class Staff:
     def __init__(self, firstName, lastName, job_title, birthday, authority, SIN) -> None:
         self.firstName = firstName
@@ -83,5 +81,6 @@ user_database = load_user_database()
 
 username_input = input("Enter your username: ")
 password_input = getpass_with_mask("Enter your password: ")
+
 
 login(username_input, password_input, user_database)
