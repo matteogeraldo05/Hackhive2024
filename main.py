@@ -1,5 +1,6 @@
 import re
 import time
+import json
 #git add --all
 #git commit -m "hackhive"
 #git push origin main 
@@ -51,6 +52,7 @@ class Patient:
         self.conditions = conditions
         self.gender = gender
         self.sex = sex
+        self.gender = gender
         self.ethnicity = ethnicity
         self.image = image
         self.insurance = insurance
@@ -74,6 +76,7 @@ class Patient:
             "Conditions": self.conditions,
             "Gender": self.gender,
             "Sex": self.sex,
+            "Gender": self.gender,
             "Ethnicity":self.ethnicity,
             "Image": self.image,
             "Insurance": self.insurance,
@@ -132,7 +135,14 @@ def create_patient():
 patient1 = create_patient()    
 
 #print(patient1.patient_dict)
-#DEBUG
+
+with open('data.json', 'a') as a:
+    json.dump(patient1.patient_dict, a)
+
+with open('data.json', 'a') as a:
+    json.dump('\n', a)
+
+
 for key, value in patient1.patient_dict.items():
     print(f"{key}: {value}")
 
@@ -169,11 +179,3 @@ print("Length of Queue:",queue.queue_length())
 queue.remove_patient()
 queue.show_queue()
 print("Length of Queue:",queue.queue_length())
-
-        
-        
-
-
-
-
-#:3
