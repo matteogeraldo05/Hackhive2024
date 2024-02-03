@@ -33,13 +33,14 @@ emergency contacty(str)
 """
 
 
-
 class Patient:
-    def __init__(self, name, dob, checkin, phone, address, email, doctor, occupation, allergies, conditions, sex, race, image, body_count, insurance, credit_card, height, weight, emergency_contact):
+    def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
 
-        self.name = name
-        self.dob = dob
-        self.checkin = checkin
+        self.firstName = firstName
+        self.lastName = lastName
+        self.birthday = birthday
+        self.married = married
+        self.checkin = checkIn
         self.phone = phone
         self.address = address
         self.email = email
@@ -48,9 +49,8 @@ class Patient:
         self.allergies = allergies
         self.conditions = conditions
         self.sex = sex
-        self.race = race
+        self.ethnicity = ethnicity
         self.image = image
-        self.body_count = body_count
         self.insurance = insurance
         self.credit_card = credit_card
         self.height = height
