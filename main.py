@@ -58,8 +58,9 @@ class Patient:
         self.emergency_contact = emergency_contact
 
         self.patient_dict = {
-            "name": self.name,
-            "dob": self.dob,
+            "name": self.firstName,
+            "LastName": self.lastName,
+            "dob": self.lastName,
             "checkin": self.checkin,
             "phone": self.phone,
             "address": self.address,
@@ -69,9 +70,8 @@ class Patient:
             "allergies": self.allergies,
             "conditions": self.conditions,
             "sex": self.sex,
-            "race":self.race,
+            "ethnicity":self.ethnicity,
             "self.image": self.image,
-            "body_count": self.body_count,
             "insurance": self.insurance,
             "credit_card": self.credit_card,
             "height": self.height,
@@ -82,7 +82,15 @@ class Patient:
 
 
     
+#user_inputs asking what is your?: 
+ 
+
+
+        
+
     
+    
+  
 
 
 #function to create Patients
@@ -93,7 +101,7 @@ class Patient:
 
 #test create patient
     
-patient1 = Patient("John Doe", "01/01/1990", "12:00", "123-456-7890", "1234 Main St", "John.Doe@gmail.com", "Dr. Smith", "Engineer", ["Peanuts", "Shellfish"], ["Diabetes", "Hypertension"],"Male", "White","", 10, "Blue Cross", 123456789, 72, 180, "Jane Doe")
+patient1 = Patient("John"," Doe", "01/01/1990", "12:00", "123-456-7890", "1234 Main St", "John.Doe@gmail.com", "Dr. Smith", "Engineer", ["Peanuts", "Shellfish"], ["Diabetes", "Hypertension"],"Male", "White","", "Blue Cross", 123456789, 72, 180, "Jane Doe")
 print()
 
 for key, value in patient1.create_patient().items():
