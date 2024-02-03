@@ -88,7 +88,7 @@ class Patient:
         return self.patient_dict
     
 
-#run once to create patient
+
 
 for i in range(1):
     firstName = input("Enter First Name: ")
