@@ -57,40 +57,26 @@ class Patient:
         self.weight = weight
         self.emergency_contact = emergency_contact
 
-        self.patient_dict = {
-            "name": self.firstName,
-            "LastName": self.lastName,
-            "dob": self.lastName,
-            "checkin": self.checkin,
-            "phone": self.phone,
-            "address": self.address,
-            "email": self.email,
-            "doctor": self.doctor,
-            "occupation": self.occupation,
-            "allergies": self.allergies,
-            "conditions": self.conditions,
-            "sex": self.sex,
-            "ethnicity":self.ethnicity,
-            "self.image": self.image,
-            "insurance": self.insurance,
-            "credit_card": self.credit_card,
-            "height": self.height,
-            "weight": self.weight,
-            "emergency_contact": self.emergency_contact
-            
-        }
 
-
-    
-#user_inputs asking what is your?: 
- 
-
-
-        
-
-    
-    
-  
+            "First Name": self.firstName,
+            "Last Name": self.lastName,
+            "Birthday": self.birthday,
+            "Check In Time": self.checkIn,
+            "Phone": self.phone,
+            "Adress": self.address,
+            "Email": self.email,
+            "Doctor": self.doctor,
+            "Occupation": self.occupation,
+            "Allergies": self.allergies,
+            "Conditions": self.conditions,
+            "Sex": self.sex,
+            "Ethnicity":self.ethnicity,
+            "Image": self.image,
+            "Insurance": self.insurance,
+            "Credit Card": self.credit_card,
+            "Height": self.height,
+            "Weight": self.weight,
+            "Emergency Contact": self.emergency_contact}
 
 
 #function to create Patients
@@ -148,8 +134,3 @@ print("Length of Queue:",queue.queue_length())
 
 
 #:3
-
-
-
-
-    

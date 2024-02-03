@@ -1,7 +1,7 @@
 from tkinter import *
 
 root = Tk()
-root.title("File Dialog Box"
+root.title("File Dialog Box")
 root.minsize(200, 200)  # width, height
 root.geometry("500x500+50+50")
 
