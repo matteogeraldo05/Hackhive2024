@@ -107,13 +107,19 @@ def create_patient():
 patient1 = create_patient()    
 
 #print(patient1.patient_dict)
+
 with open('data.json', 'a') as a:
-    patient_json_string = json.dumps(patient1.patient_dict, indent=2)
-    a.write(patient_json_string + '\n')
+    json.dump(patient1.patient_dict, a)
+
+with open('data.json', 'a') as a:
+    json.dump('\n', a)
 
 
 for key, value in patient1.patient_dict.items():
     print(f"{key}: {value}")
+
+
+
 
 print()
 
