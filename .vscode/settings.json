@@ -62,5 +62,7 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/be6dfdf8-1020-4b76-8d1d-a301a37fca1e/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/GSIXcode",
+  "appService.deploySubpath": ".vscode"
 }
