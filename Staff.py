@@ -85,10 +85,3 @@ username_input = input("Enter your username: ")
 password_input = getpass_with_mask("Enter your password: ")
 
 login(username_input, password_input, user_database)
-
-
-
-
-
-
-
