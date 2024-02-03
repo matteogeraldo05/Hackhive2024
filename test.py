@@ -1,7 +1,7 @@
 from tkinter import *
 
 root = Tk()
-root.title("File")
+root.title("File Dialog Box"
 root.minsize(200, 200)  # width, height
 root.geometry("500x500+50+50")
 
@@ -10,3 +10,4 @@ image = PhotoImage(file="caption.gif")
 img = Label(root, image=image)
 img.pack()
 root.mainloop()
+
