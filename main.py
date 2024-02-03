@@ -175,7 +175,7 @@ label = tk.Label(window, text="Welcome to SmartHealth Records!", font="Arial 24 
 label.pack()
 
 # Create a button
-button = tk.Button(window, text="", command=#log in function)
-button.pack()
+#button = tk.Button(window, text="", command=#log in function)
+#button.pack()
 
 window.mainloop()
