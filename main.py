@@ -35,12 +35,14 @@ emergency contacty(str)
 
 class Patient:
     def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
+    
+
 
         self.firstName = firstName
         self.lastName = lastName
         self.birthday = birthday
         self.married = married
-        self.checkin = checkIn
+        self.checkIn = checkIn
         self.phone = phone
         self.address = address
         self.email = email
@@ -56,14 +58,16 @@ class Patient:
         self.height = height
         self.weight = weight
         self.emergency_contact = emergency_contact
-
-
+    
+    
+        self.patient_dict = {
             "First Name": self.firstName,
             "Last Name": self.lastName,
             "Birthday": self.birthday,
+            "Married": self.married,
             "Check In Time": self.checkIn,
             "Phone": self.phone,
-            "Adress": self.address,
+            "Address": self.address,
             "Email": self.email,
             "Doctor": self.doctor,
             "Occupation": self.occupation,
@@ -76,18 +80,45 @@ class Patient:
             "Credit Card": self.credit_card,
             "Height": self.height,
             "Weight": self.weight,
-            "Emergency Contact": self.emergency_contact}
-
-
-#function to create Patients
+            "Emergency Contact": self.emergency_contact
+            
+            }
         
     def create_patient(self):
         return self.patient_dict
-
-
-#test create patient
     
-patient1 = Patient("John"," Doe", "01/01/1990", "12:00", "123-456-7890", "1234 Main St", "John.Doe@gmail.com", "Dr. Smith", "Engineer", ["Peanuts", "Shellfish"], ["Diabetes", "Hypertension"],"Male", "White","", "Blue Cross", 123456789, 72, 180, "Jane Doe")
+
+#run once to create patient
+
+for i in range(1):
+    firstName = input("Enter First Name: ")
+    lastName = input("Enter Last Name: ")
+    birthday = input("Enter Birthday: ")
+    married = input("Married? YES or NO: ")
+    checkIn = input("Enter Check In Time: ")
+    phone = int(input("Enter Phone Number: "))
+    address = input("Enter Address: ")
+    email = input("Enter Email: ")
+    doctor = input("Enter Doctor: ")
+    occupation = input("Enter Occupation: ")  
+    allergies = input("Enter Allergies: ").split()
+    conditions = input("Enter Conditions: ").split()
+    sex = input("Enter Sex:")
+    ethnicity = input("Enter Ethnicity: ")
+    insurance = input("Enter Insurance: ")
+    credit_card = int(input("Enter Credit Card: "))
+    height = int(input("Enter Height: "))
+    weight = int(input("Enter Weight: "))
+    contact = input("Enter Emergency Contact: ")       
+
+
+    
+   
+patient1 = Patient(firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,sex,ethnicity,"Image",insurance,credit_card,height,weight,contact)              
+
+
+    
+
 print()
 
 for key, value in patient1.create_patient().items():
@@ -109,7 +140,7 @@ class Queue:
 
     def show_queue(self):
         for patient in self.queue:
-            print(patient.name, patient.conditions)
+            print(patient.firstName, patient.lastName, patient.conditions)
     
     def next_patient(self):
         return self.queue[0]
