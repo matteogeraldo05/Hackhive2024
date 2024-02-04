@@ -2,6 +2,4 @@ azure_storage_connectionstring: "DefaultEndpointsProtocol=https;AccountName=smar
 patients_container_name: "patients"
 staff_container_name: "staff"
 stafflogin_container_name: "stafflogin"
-source_folder: "/Users/gamer/Desktop/bots/Python/Hackhive2024/upload"
-
-#"/Users/matte/OneDrive/Desktop/Projects/C++/Other/Hackhive2024/upload"
+source_folder: "/Users/matte/OneDrive/Desktop/Projects/C++/Other/Hackhive2024/upload"
