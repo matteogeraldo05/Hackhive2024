@@ -215,7 +215,7 @@ def create_account():
 
     # Check if passwords match
     if new_password == confirm_password:
-        print("Successfully created account")
+        #print("Successfully created account")
         try:
             # Load existing data from the user database file
             with open('user_database.json', 'r') as file:
@@ -267,7 +267,7 @@ create_account_button.pack()
 frame_login = ttk.Frame(notebook, style="TFrame")
 notebook.add(frame_login, text="Login Page")
 
-welcome_text = ttk.Label(master=frame_login, text="Thomas pektovic", style="WhiteLabelBig.TLabel")
+welcome_text = ttk.Label(master=frame_login, text="User Login", style="WhiteLabelBig.TLabel")
 welcome_text.pack()
 
 def load_user_database():
