@@ -1,5 +1,5 @@
-azure_storage_connectionstring: "DefaultEndpointsProtocol=https;AccountName=smarthealthrecords;AccountKey=tZUvduxyvNahf+IrhXuilrYi1U56OnjIy0DAZ58cI30aCui7djohY5UgUyqOXM3sl65p6ViRp3TV+AStOmlLUQ==;EndpointSuffix=core.windows.net"
+azure_storage_connectionstring: "INSERT SUBSCRIPTION HERE"
 patients_container_name: "patients"
 staff_container_name: "staff"
 stafflogin_container_name: "stafflogin"
-source_folder: "/Users/matte/OneDrive/Desktop/Projects/C++/Other/Hackhive2024/upload"
+source_folder: "/Users/matte/OneDrive/Desktop/Projects/Python/Hackhive2024/upload"
