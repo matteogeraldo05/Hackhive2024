@@ -2,10 +2,11 @@ import re
 import time
 import json
 import azure.cognitiveservices.speech as speechsdk
+import msvcrt
+import json
 #git add --all
 #git commit -m "hackhive"
 #git push origin main 
-
 
 class Patient:
     def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
@@ -117,7 +118,6 @@ for key, value in patient1.patient_dict.items():
     print(f"{key}: {value}")
 
 
-
 class Queue:
     def __init__(self):
         self.queue = []
@@ -147,29 +147,3 @@ print("Length of Queue:",queue.queue_length())
 queue.remove_patient()
 queue.show_queue()
 print("Length of Queue:",queue.queue_length())
-
-
-
-def recognize_from_microphone():
-   
-    speech_config = speechsdk.SpeechConfig(subscription='951353ae383f4b6e9ff27fc2a7f50139', region='eastus')
-    speech_config.speech_recognition_language="en-US"
-
-    audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
-
-    print("Speak into your microphone.")
-    speech_recognition_result = speech_recognizer.recognize_once_async().get()
-
-    if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
-        print("Recognized: {}".format(speech_recognition_result.text))
-    elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
-        print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
-    elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:
-        cancellation_details = speech_recognition_result.cancellation_details
-        print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-        if cancellation_details.reason == speechsdk.CancellationReason.Error:
-            print("Error details: {}".format(cancellation_details.error_details))
-            print("Did you set the speech resource key and region values?")
-
-recognize_from_microphone()
