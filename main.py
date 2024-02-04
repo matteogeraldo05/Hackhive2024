@@ -7,36 +7,6 @@ import azure.cognitiveservices.speech as speechsdk
 #git push origin main 
 
 
-"""
-Patient class with
-
-name(str)
-date of birth(str)
-checkout/in time(str)
-phone number(str)
-address(str)
-email(str)
-doctor(str)
-address(list)
-occupation(str)
-allergies(list)
-conditions(list)
-sex(str)
-race(str)
-image(img)
-bodycount(int)
-healthcard(str)
-insurace(str)
-credit card(int)
-height(int)
-weight(int)
-emergency contacty(str)
-
-
-
-"""
-
-
 class Patient:
     def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
         self.firstName = firstName
@@ -89,19 +59,19 @@ class Patient:
             }
     
     #check if users phone number configuration is valid
-    def validate_phone():
-        #'905-721-8668' OR '9057218668'
-        while not re.match("^(?!.*\(\d{3}\)\d{3}-\d{4}$)\(?\d{3}\)?-?\d{3}-?\d{4}$", phone):
-            print("Invalid phone number format. Please try again.")
-            phone = input("Enter Phone Number: ")
-        return phone
-    
-    #check if user email is valid
-    def validate_email(self, email):
-        while not re.match("[^@]+@[^@]+\.[^@]+", email):
-            print("Invalid email format. Please try again.")
-            email = input("Enter Email: ")
-        return email
+def validate_phone(phone):
+    #'905-721-8668' OR '9057218668'
+    while not re.match("^(?!.*\(\d{3}\)\d{3}-\d{4}$)\(?\d{3}\)?-?\d{3}-?\d{4}$", phone):
+        print("Invalid phone number format. Please try again.")
+        phone = input("Enter Phone Number: ")
+    return phone
+
+#check if user email is valid
+def validate_email(email):
+    while not re.match("[^@]+@[^@]+\.[^@]+", email):
+        print("Invalid email format. Please try again.")
+        email = input("Enter Email: ")
+    return email
         
 def current_time():
     localTime = time.localtime()
@@ -115,8 +85,10 @@ def create_patient():
     married = input("Married? YES or NO: ")
     checkIn = current_time()
     phone = input("Enter Phone Number: ")
+    phone = validate_phone(phone)
     address = input("Enter Address: ")
     email = input("Enter Email: ")
+    email = validate_email(email)
     doctor = input("Enter Doctor: ")
     occupation = input("Enter Occupation: ")  
     allergies = input("Enter Allergies: ").split()
@@ -126,8 +98,8 @@ def create_patient():
     ethnicity = input("Enter Ethnicity: ")
     insurance = input("Enter Insurance: ")
     credit_card = int(input("Enter Credit Card: "))
-    height = int(input("Enter Height: "))
-    weight = int(input("Enter Weight: "))
+    height = int(input("Enter Height (in): "))
+    weight = int(input("Enter Weight (lbs): "))
     emergency_contact = input("Enter Emergency Contact: ")
 
     return Patient(firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex,ethnicity,"Image",insurance,credit_card,height,weight,emergency_contact)
@@ -143,11 +115,6 @@ with open('data.json', 'a') as a:
 
 for key, value in patient1.patient_dict.items():
     print(f"{key}: {value}")
-
-
-
-
-print()
 
 
 
