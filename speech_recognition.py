@@ -3,7 +3,7 @@ import json #json library
 
 def recognize_from_microphone():
 
-    speech_config = speechsdk.SpeechConfig(subscription='951353ae383f4b6e9ff27fc2a7f50139', region='eastus') # Key to connect to Azure servers for speech service
+    speech_config = speechsdk.SpeechConfig(subscription='INSERT SUBSCRIPTION HERE', region='eastus') # Key to connect to Azure servers for speech service
     speech_config.speech_recognition_language="en-US"# set as english
 
     audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True) # uses default mic on your computer
