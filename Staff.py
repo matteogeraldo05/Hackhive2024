@@ -16,7 +16,7 @@ class Staff:
         }
 
 
-def create_patient():
+def create_staff():
     firstName = input("Enter First Name: ")
     lastName = input("Enter Last Name: ")
     birthday = input("Enter Birthday: ")
@@ -24,7 +24,3 @@ def create_patient():
     authority = input("Authority Level: ")
     SIN = input("SIN: ")
     return Staff(firstName, lastName, birthday, job_title, authority, SIN)
-
-
-#DEBUG!!!
-Staff1 = create_patient()

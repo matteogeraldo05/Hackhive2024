@@ -2,6 +2,12 @@
 import os
 import yaml
 from azure.storage.blob import ContainerClient
+import shutil
+
+def copy_data():
+    source_file = 'patient_data.json'
+    destination_folder = 'upload/patients/'
+    shutil.copy(source_file, destination_folder)
 
 def load_config():
     dir_root = os.path.dirname(os.path.abspath(__file__))
@@ -25,7 +31,9 @@ def upload(files, connection_string, container_name):
             print(f"{file.name} uploaded to blob storage")
             os.remove(file)
             print(f"{file.name} was removed from computer")
-    
-config = load_config()
-patients = get_files(config["source_folder"]+"/patients")
-upload(patients, config["azure_storage_connectionstring"], config["patients_container_name"])
+
+def run_jitt():
+    copy_data()    
+    config = load_config()
+    patients = get_files(config["source_folder"]+"/patients")
+    upload(patients, config["azure_storage_connectionstring"], config["patients_container_name"])

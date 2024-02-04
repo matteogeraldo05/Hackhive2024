@@ -1,26 +1,20 @@
-import os
-import azure.cognitiveservices.speech as speechsdk
+import azure.cognitiveservices.speech as speechsdk #azure library for congitive service speech
+import json #json library
 
 def recognize_from_microphone():
-    # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-    speech_config = speechsdk.SpeechConfig(subscription='951353ae383f4b6e9ff27fc2a7f50139', region='eastus')
-    speech_config.speech_recognition_language="en-US"
 
-    audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+    speech_config = speechsdk.SpeechConfig(subscription='951353ae383f4b6e9ff27fc2a7f50139', region='eastus') # Key to connect to Azure servers for speech service
+    speech_config.speech_recognition_language="en-US"# set as english
 
-    print("Speak into your microphone.")
-    speech_recognition_result = speech_recognizer.recognize_once_async().get()
+    audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True) # uses default mic on your computer
+    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config) # Recognizes when a voice is comming through to the pc
 
-    if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
-        print("Recognized: {}".format(speech_recognition_result.text))
-    elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
-        print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
-    elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:
-        cancellation_details = speech_recognition_result.cancellation_details
-        print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-        if cancellation_details.reason == speechsdk.CancellationReason.Error:
-            print("Error details: {}".format(cancellation_details.error_details))
-            print("Did you set the speech resource key and region values?")
+    print("Speak into your microphone.")# prompts user to speak into mic
+    speech_recognition_result = speech_recognizer.recognize_once_async().get()# checks when there has been a notible length of silence
 
-recognize_from_microphone()
+    if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech: # if the result = the recognized speech prints to json file as string
+        with open('speech_rec.json', 'a') as f:
+            json.dump(speech_recognition_result.text, f) # dumps it into file
+            f.write('\n')
+            print("sent to json file")
+            

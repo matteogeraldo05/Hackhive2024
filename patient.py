@@ -3,7 +3,7 @@ import time
 import json
 
 class Patient:
-    def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact):
+    def __init__(self, firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex, ethnicity, image, insurance, credit_card, height, weight, emergency_contact, emergency_contact_number):
         self.firstName = firstName
         self.lastName = lastName
         self.birthday = birthday
@@ -26,6 +26,7 @@ class Patient:
         self.height = height
         self.weight = weight
         self.emergency_contact = emergency_contact
+        self.emergency_contact_number = emergency_contact_number
     
         self.patient_dict = {
             "First Name": self.firstName,
@@ -49,9 +50,18 @@ class Patient:
             "Credit Card": self.credit_card,
             "Height": self.height,
             "Weight": self.weight,
-            "Emergency Contact": self.emergency_contact
+            "Emergency Contact": self.emergency_contact,
+            "Emergency Contact Number": self.emergency_contact_number
             
             }
+        
+        with open('data.json', 'a') as a:
+            json.dump(self.patient_dict, a)
+            a.write('\n')
+
+        for key, value in self.patient_dict.items():
+            print(f"{key}: {value}")
+
     
     #check if users phone number configuration is valid
 def validate_phone(phone):
@@ -96,17 +106,6 @@ def create_patient():
     height = int(input("Enter Height (in): "))
     weight = int(input("Enter Weight (lbs): "))
     emergency_contact = input("Enter Emergency Contact: ")
+    emergency_contact_number = input("Enter Emergency Number: ")
 
-    return Patient(firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex,ethnicity,"Image",insurance,credit_card,height,weight,emergency_contact)
-
-
-patient1 = create_patient()    
-
-#print(patient1.patient_dict)
-
-with open('data.json', 'a') as a:
-    json.dump(patient1.patient_dict, a)
-    a.write('\n')
-
-for key, value in patient1.patient_dict.items():
-    print(f"{key}: {value}")
+    return Patient(firstName, lastName, birthday, married, checkIn, phone, address, email, doctor, occupation, allergies, conditions,gender, sex,ethnicity,"Image",insurance,credit_card,height,weight,emergency_contact, emergency_contact_number)
